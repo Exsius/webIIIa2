@@ -6,13 +6,13 @@ A webIII school project API written in node, mongodb and typescript
 ## API Reference 🤌
 
 ### Get all movies
-```http
+```bash
   GET /api/movies
 ```
 Returns the entire set of movies available in the database
 
 ### Get movies with limit
-```http
+```bash
   GET /api/movies/:limit
 ```
 Returns the first set of movies, with the quantity specified by the limit
@@ -21,7 +21,7 @@ Returns the first set of movies, with the quantity specified by the limit
 | `limit` | **Required**. The value of the num field should fall within the range of 1 to 200. |
 
 ### Get movie by id
-```http
+```bash
   GET /api/movies/:id
 ```
 Returns a movie that matches the specified id
@@ -30,7 +30,7 @@ Returns a movie that matches the specified id
 | `id` | **Required**. The id of the movie. |
 
 ### Get movie by tmdb id
-```http
+```bash
   GET /api/movies/tmdb/:id
 ```
 Returns a movie that matches the specified tmdb id
@@ -39,7 +39,7 @@ Returns a movie that matches the specified tmdb id
 | `id` | **Required**. The tmdb id of the movie. |
 
 ### Get movies by year range
-```http
+```bash
   GET /api/movies/year/:min/:max
 ```
 Returns movies that were released within the specified year range
@@ -49,7 +49,7 @@ Returns movies that were released within the specified year range
 | `max` | **Required**. the upper year range. |
 
 ### Get movies by rating range
-```http
+```bash
   GET /api/movies/ratings/:min/:max
 ```
 Returns movies that having a rating between the specified rating range
@@ -59,7 +59,7 @@ Returns movies that having a rating between the specified rating range
 | `max` | **Required**. the upper rating range. |
 
 ### Get movies by title
-```http
+```bash
   GET /api/movies/title/:text
 ```
 Returns movies with titles that contains the specified text
@@ -68,7 +68,7 @@ Returns movies with titles that contains the specified text
 | `text` | **Required**. the string used to search titles for |
 
 ### Get movies by genre
-```http
+```bash
   GET /api/movies/genre/:name
 ```
 Returns movies with genre that contains the specified name
