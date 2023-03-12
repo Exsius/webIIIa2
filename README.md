@@ -130,12 +130,12 @@ Start the server
 
 To run this project, you will need to add the following environment variables to your .env file
 
-`PORT` __= port to use for node server__
-`DB_NAME` __= name to use when creating database__
-`DB_PORT` __= port to use for database__
-`DB_USER` __= user to create for database__
-`DB_PASSWORD` __= password for new db user created__
-`SECRET` __= session secret__
+- `PORT` __= port to use for node server__
+- `DB_NAME` __= name to use when creating database__
+- `DB_PORT` __= port to use for database__
+- `DB_USER` __= user to create for database__
+- `DB_PASSWORD` __= password for new db user created__
+- `SECRET` __= session secret__
 
 ## Tech used 🔧
 
