@@ -1,0 +1,48 @@
+version: '3.0'
+
+services:
+  mongo:
+    image: mongo:6.0.4
+    restart: unless-stopped
+    expose:
+      - ${DB_PORT}:27017
+    ports:
+      - ${DB_PORT}:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
+      MONGO_INITDB_DATABASE: ${DB_NAME}
+    volumes:
+      - ./mongoseed.js:/docker-entrypoint-initdb.d/mongoseed.js:ro
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: ./backend
+    restart: unless-stopped
+    expose:
+      - ${PORT}:3000
+    ports:
+      - ${PORT}:3000
+    depends_on:
+      - mongo
+    environment:
+      DB_HOST: mongo
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      DB_PORT: ${DB_PORT}
+      SECRET: ${SECRET}
+    volumes:
+      - ./backend:/usr/src/app
+    networks:
+      - app-network
+
+volumes:
+  backend_data:
+  db_data:
+
+networks:
+  app-network:
+    driver: bridge

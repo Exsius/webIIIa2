@@ -1,0 +1,7 @@
+<h2>
+    Welcome
+    <%= `${user.details.firstname}, ${user.details.lastname}` %> 
+</h2>
+<form action="/api/user/logout" method="post">
+    <input type="submit" value="logout">
+</form>
