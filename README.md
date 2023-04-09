@@ -11,7 +11,7 @@ A webIII school project API written in node, mongodb and typescript
 ```
 Returns the entire set of movies available in the database
 
-### [Get movies with limit](https://a2.simphub.online/api/movies/limit/movies/5)
+### [Get movies with limit](https://a2.simphub.online/api/movies/limit/5)
 ```bash
   GET /api/movies/limit/:limit
 ```
