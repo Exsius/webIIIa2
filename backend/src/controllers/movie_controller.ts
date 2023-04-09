@@ -1,6 +1,14 @@
 import { Request, Response } from 'express'
 import { Movie } from '../models'
 
+/**
+Retrieves all movies from the database.
+@async
+@function
+@param {Request} req - The HTTP request object.
+@param {Response} res - The HTTP response object.
+@returns {Promise<void>} - A Promise that resolves with a JSON array of movie objects or an error message.
+*/
 export const getAllMovies = async (req: Request, res: Response) => {
     try {
         const movies = await Movie.find()
@@ -10,6 +18,14 @@ export const getAllMovies = async (req: Request, res: Response) => {
     }
 }
 
+/**
+Retrieves a specific number of movies from the database.
+@async
+@function
+@param {Request} req - The HTTP request object.
+@param {Response} res - The HTTP response object.
+@returns {Promise<void>} - A Promise that resolves with a JSON array of movie objects or an error message.
+*/
 export const getMovies = async (req: Request, res: Response) => {
     const { num } = req.params
     const parsedNum = parseInt(num)
@@ -25,6 +41,14 @@ export const getMovies = async (req: Request, res: Response) => {
     }
 }
 
+/**
+Retrieves a movie by its ID from the database.
+@async
+@function
+@param {Request} req - The HTTP request object.
+@param {Response} res - The HTTP response object.
+@returns {Promise<void>} - A Promise that resolves with a JSON object of the movie or an error message.
+*/
 export const getMovieById = async (req: Request, res: Response) => {
     const { id } = req.params
     const parsedId = parseInt(id)
@@ -36,6 +60,14 @@ export const getMovieById = async (req: Request, res: Response) => {
     }
 }
 
+/**
+Retrieves a movie by its TMDB ID from the database.
+@async
+@function
+@param {Request} req - The HTTP request object.
+@param {Response} res - The HTTP response object.
+@returns {Promise<void>} - A Promise that resolves with a JSON object of the movie or an error message.
+*/
 export const getMovieByTmdbId = async (req: Request, res: Response) => {
     const { id } = req.params
     const parsedId = parseInt(id)
@@ -47,6 +79,14 @@ export const getMovieByTmdbId = async (req: Request, res: Response) => {
     }
 }
 
+/**
+ * Retrieves movies released within the specified year range.
+ * @async
+ * @function
+ * @param {Request} req - The Express request object.
+ * @param {Response} res - The Express response object.
+ * @returns {Promise<void>} - A Promise that resolves when the movies have been retrieved and the response has been sent.
+ */
 export const getMoviesByYearRange = async (req: Request, res: Response) => {
     const { min, max } = req.params
     const parsedMin = new Date(parseInt(min), 0)
@@ -65,6 +105,14 @@ export const getMoviesByYearRange = async (req: Request, res: Response) => {
     }
 }
 
+/**
+Retrieves movies from the database with average ratings within a given range.
+@async
+@function
+@param {Request} req - The HTTP request object.
+@param {Response} res - The HTTP response object.
+@returns {Promise<void>} - A Promise that resolves with a JSON object of the movies or an error message.
+*/
 export const getMoviesByRatingsRange = async (req: Request, res: Response) => {
     const { min, max } = req.params
     const parsedMin = parseInt(min)
@@ -83,6 +131,14 @@ export const getMoviesByRatingsRange = async (req: Request, res: Response) => {
     }
 }
 
+/**
+Retrieves movies from the database that match a given search text in the movie title.
+@async
+@function
+@param {Request} req - The Express Request object.
+@param {Response} res - The Express Response object.
+@returns {Promise<void>} - A Promise that resolves with the search results, or rejects with an error.
+*/
 export const getMoviesByTitle = async (req: Request, res: Response) => {
     const { text } = req.params
     try {
@@ -93,6 +149,14 @@ export const getMoviesByTitle = async (req: Request, res: Response) => {
     }
 }
 
+/**
+Retrieves movies based on a specific genre name.
+@async
+@function
+@param {Request} req - The request object containing the genre name as a parameter.
+@param {Response} res - The response object to send the result back to the client.
+@returns {Promise<void>} - A Promise that resolves when the movies are retrieved and sent back to the client or when an error occurs.
+*/
 export const getMoviesByGenre = async (req: Request, res: Response) => {
     const { name } = req.params
     try {
