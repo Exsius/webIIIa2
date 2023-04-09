@@ -5,22 +5,22 @@ A webIII school project API written in node, mongodb and typescript
 
 ## API Reference 🤌
 
-### Get all movies
+### [Get all movies](https://a2.simphub.online/api/movies)
 ```bash
   GET /api/movies
 ```
 Returns the entire set of movies available in the database
 
-### Get movies with limit
+### [Get movies with limit](https://a2.simphub.online/api/movies/limit/movies/5)
 ```bash
-  GET /api/movies/:limit
+  GET /api/movies/limit/:limit
 ```
 Returns the first set of movies, with the quantity specified by the limit
 | Parameter | Description                |
 | :-------- | :------------------------- |
 | `limit` | **Required**. The value of the num field should fall within the range of 1 to 200. |
 
-### Get movie by id
+### [Get movie by id](https://a2.simphub.online/api/movies/13)
 ```bash
   GET /api/movies/:id
 ```
@@ -29,7 +29,7 @@ Returns a movie that matches the specified id
 | :-------- | :------------------------- |
 | `id` | **Required**. The id of the movie. |
 
-### Get movie by tmdb id
+### [Get movie by tmdb id](https://a2.simphub.online/api/movies/tmdb/186)
 ```bash
   GET /api/movies/tmdb/:id
 ```
@@ -38,7 +38,7 @@ Returns a movie that matches the specified tmdb id
 | :-------- | :------------------------- |
 | `id` | **Required**. The tmdb id of the movie. |
 
-### Get movies by year range
+### [Get movies by year range](https://a2.simphub.online/api/movies/year/1999/2001)
 ```bash
   GET /api/movies/year/:min/:max
 ```
@@ -48,7 +48,7 @@ Returns movies that were released within the specified year range
 | `min` | **Required**. the lower year range. |
 | `max` | **Required**. the upper year range. |
 
-### Get movies by rating range
+### [Get movies by rating range](https://a2.simphub.online/api/movies/ratings/3/6)
 ```bash
   GET /api/movies/ratings/:min/:max
 ```
@@ -58,7 +58,7 @@ Returns movies that having a rating between the specified rating range
 | `min` | **Required**. the lower rating range. |
 | `max` | **Required**. the upper rating range. |
 
-### Get movies by title
+### [Get movies by title](https://a2.simphub.online/api/movies/title/simp)
 ```bash
   GET /api/movies/title/:text
 ```
@@ -67,7 +67,7 @@ Returns movies with titles that contains the specified text
 | :-------- | :------------------------- |
 | `text` | **Required**. the string used to search titles for |
 
-### Get movies by genre
+### [Get movies by genre](https://a2.simphub.online/api/movies/genre/drama)
 ```bash
   GET /api/movies/genre/:name
 ```
